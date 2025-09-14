@@ -1,0 +1,94 @@
+from rest_framework import serializers
+from django.contrib.auth.models import User
+from workshop_app.models import (
+    Profile, WorkshopType, AttachmentFile, Workshop, Testimonial, Comment, Banner
+)
+from cms.models import Nav, SubNav, Page, StaticFile
+from teams.models import Team
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
+class WorkshopTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkshopType
+        fields = '__all__'
+
+class AttachmentFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttachmentFile
+        fields = '__all__'
+
+class WorkshopSerializer(serializers.ModelSerializer):
+    coordinator = UserSerializer(read_only=True)
+    instructor = UserSerializer(read_only=True)
+    workshop_type = WorkshopTypeSerializer(read_only=True)
+
+    class Meta:
+        model = Workshop
+        fields = '__all__'
+
+class TestimonialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Testimonial
+        fields = '__all__'
+
+class CommentSerializer(serializers.ModelSerializer):
+    author = UserSerializer(read_only=True)
+    workshop = WorkshopSerializer(read_only=True)
+
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
+class BannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Banner
+        fields = '__all__'
+
+class NavSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Nav
+        fields = '__all__'
+
+class SubNavSerializer(serializers.ModelSerializer):
+    nav = NavSerializer(read_only=True)
+    class Meta:
+        model = SubNav
+        fields = '__all__'
+
+class PageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Page
+        fields = '__all__'
+
+class StaticFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StaticFile
+        fields = '__all__'
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password1 = serializers.CharField(required=True)
+    new_password2 = serializers.CharField(required=True)
+
+    def validate(self, data):
+        if data['new_password1'] != data['new_password2']:
+            raise serializers.ValidationError({'new_password2': ["New passwords must match."]})
+        return data
+
+class TeamSerializer(serializers.ModelSerializer):
+    members = ProfileSerializer(many=True, read_only=True)
+    creator = UserSerializer(read_only=True)
+    class Meta:
+        model = Team
+        fields = '__all__' 

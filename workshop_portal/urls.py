@@ -13,20 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from workshop_portal import views
 from django.conf import settings
+from rest_framework_simplejwt.views import TokenRefreshView
+from workshop_app.api.views import CustomTokenObtainPairView
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
-    url(r'^workshop/', include('workshop_app.urls')),
-    url(r'^reset/', include('django.contrib.auth.urls')),
-    url(r'^page/', include('cms.urls')),
-    url(r'^statistics/', include('statistics_app.urls')),
+    path('admin/', admin.site.urls),
+    path('', views.index),
+    path('workshop/', include('workshop_app.urls')),
+    path('reset/', include('django.contrib.auth.urls')),
+    path('page/', include('cms.urls')),
+    path('statistics/', include('statistics_app.urls')),
+    path('api/', include('workshop_app.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

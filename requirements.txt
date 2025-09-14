@@ -1,7 +1,9 @@
 asgiref==3.9.1
 coverage==7.10.6
-Django==3.0.7
+Django==5.2.6
 django-recurrence==1.11.1
+djangorestframework==3.16.1
+drf-nested-routers==0.94.2
 numpy==2.3.2
 pandas==2.3.2
 psycopg2-binary==2.9.10
