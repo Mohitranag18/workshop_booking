@@ -20,14 +20,14 @@ const Navbar = () => {
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center">
-                            <span className="text-xl font-bold text-indigo-600">Workshop Portal</span>
+                            <span className="text-lg sm:text-xl font-bold text-indigo-600">Workshop Portal</span>
                         </Link>
                     </div>
 
-                    <div className="hidden md:flex items-center space-x-4">
+                    <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
                         <Link
                             to="/"
-                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                 isActive('/') 
                                     ? 'bg-indigo-100 text-indigo-700' 
                                     : 'text-gray-700 hover:text-indigo-600'
@@ -38,7 +38,7 @@ const Navbar = () => {
                         
                         <Link
                             to="/statistics/public"
-                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                 isActive('/statistics/public') 
                                     ? 'bg-indigo-100 text-indigo-700' 
                                     : 'text-gray-700 hover:text-indigo-600'
@@ -53,23 +53,25 @@ const Navbar = () => {
                                     <>
                                         <Link
                                             to="/workshop/status"
-                                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive('/workshop/status') 
                                                     ? 'bg-indigo-100 text-indigo-700' 
                                                     : 'text-gray-700 hover:text-indigo-600'
                                             }`}
                                         >
-                                            My Workshops
+                                            <span className="hidden lg:inline">My Workshops</span>
+                                            <span className="lg:hidden">Workshops</span>
                                         </Link>
                                         <Link
                                             to="/workshop/propose"
-                                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive('/workshop/propose') 
                                                     ? 'bg-indigo-100 text-indigo-700' 
                                                     : 'text-gray-700 hover:text-indigo-600'
                                             }`}
                                         >
-                                            Propose Workshop
+                                            <span className="hidden lg:inline">Propose Workshop</span>
+                                            <span className="lg:hidden">Propose</span>
                                         </Link>
                                     </>
                                 )}
@@ -78,7 +80,7 @@ const Navbar = () => {
                                     <>
                                         <Link
                                             to="/dashboard"
-                                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive('/dashboard') 
                                                     ? 'bg-indigo-100 text-indigo-700' 
                                                     : 'text-gray-700 hover:text-indigo-600'
@@ -88,20 +90,21 @@ const Navbar = () => {
                                         </Link>
                                         <Link
                                             to="/workshop/types"
-                                            className={`px-3 py-2 rounded-md text-sm font-medium ${
+                                            className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive('/workshop/types') 
                                                     ? 'bg-indigo-100 text-indigo-700' 
                                                     : 'text-gray-700 hover:text-indigo-600'
                                             }`}
                                         >
-                                            Workshop Types
+                                            <span className="hidden lg:inline">Workshop Types</span>
+                                            <span className="lg:hidden">Types</span>
                                         </Link>
                                     </>
                                 )}
 
                                 <Link
                                     to="/profile"
-                                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                                    className={`px-2 lg:px-3 py-2 rounded-md text-sm font-medium ${
                                         isActive('/profile') 
                                             ? 'bg-indigo-100 text-indigo-700' 
                                             : 'text-gray-700 hover:text-indigo-600'
@@ -111,9 +114,11 @@ const Navbar = () => {
                                 </Link>
 
                                 <div className="relative group">
-                                    <button className="flex items-center text-sm font-medium text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md">
-                                        <span className="mr-1">{user?.first_name || user?.username}</span>
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <button className="flex items-center text-sm font-medium text-gray-700 hover:text-indigo-600 px-2 lg:px-3 py-2 rounded-md">
+                                        <span className="mr-1 truncate max-w-20 sm:max-w-none">
+                                            {user?.first_name || user?.username}
+                                        </span>
+                                        <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
@@ -152,13 +157,13 @@ const Navbar = () => {
                             <>
                                 <Link
                                     to="/login"
-                                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600"
+                                    className="px-2 lg:px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600"
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     to="/register"
-                                    className="px-3 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md"
+                                    className="px-2 lg:px-3 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md"
                                 >
                                     Register
                                 </Link>
@@ -171,6 +176,7 @@ const Navbar = () => {
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                            aria-label="Toggle menu"
                         >
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 {isMenuOpen ? (
@@ -187,7 +193,7 @@ const Navbar = () => {
             {/* Mobile menu */}
             {isMenuOpen && (
                 <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t shadow-lg">
                         <Link
                             to="/"
                             className={`block px-3 py-2 rounded-md text-base font-medium ${
@@ -268,56 +274,63 @@ const Navbar = () => {
                                     </>
                                 )}
 
-                                <Link
-                                    to="/profile"
-                                    className={`block px-3 py-2 rounded-md text-base font-medium ${
-                                        isActive('/profile') 
-                                            ? 'bg-indigo-100 text-indigo-700' 
-                                            : 'text-gray-700 hover:text-indigo-600'
-                                    }`}
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Profile
-                                </Link>
-                                <Link
-                                    to="/profile/edit"
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Edit Profile
-                                </Link>
-                                <Link
-                                    to="/change-password"
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Change Password
-                                </Link>
-                                <button
-                                    onClick={handleLogout}
-                                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
-                                >
-                                    Logout
-                                </button>
+                                <div className="border-t border-gray-200 pt-2 mt-2">
+                                    <div className="px-3 py-2 text-sm font-medium text-gray-500">
+                                        {user?.first_name || user?.username}
+                                    </div>
+                                    <Link
+                                        to="/profile"
+                                        className={`block px-3 py-2 rounded-md text-base font-medium ${
+                                            isActive('/profile') 
+                                                ? 'bg-indigo-100 text-indigo-700' 
+                                                : 'text-gray-700 hover:text-indigo-600'
+                                        }`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        View Profile
+                                    </Link>
+                                    <Link
+                                        to="/profile/edit"
+                                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Edit Profile
+                                    </Link>
+                                    <Link
+                                        to="/change-password"
+                                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Change Password
+                                    </Link>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
                             </>
                         )}
 
                         {!isAuthenticated && (
                             <>
-                                <Link
-                                    to="/login"
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Login
-                                </Link>
-                                <Link
-                                    to="/register"
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Register
-                                </Link>
+                                <div className="border-t border-gray-200 pt-2 mt-2">
+                                    <Link
+                                        to="/login"
+                                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600"
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Login
+                                    </Link>
+                                    <Link
+                                        to="/register"
+                                        className="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Register
+                                    </Link>
+                                </div>
                             </>
                         )}
                     </div>

@@ -27,9 +27,9 @@ const AppContent = () => {
     const { isAuthenticated } = useAuth();
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col bg-gray-50">
             <Navbar />
-            <div className="min-h-screen bg-gray-50" style={{ paddingTop: '70px', paddingBottom: '80px' }}>
+            <main className="flex-1 pt-16">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/page/:permalink" element={<HomePage />} />
@@ -60,13 +60,18 @@ const AppContent = () => {
                     <Route path="/activate_user" element={<ActivateUserPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
-            </div>
-            <footer className="bg-gray-800 text-white text-center py-4 fixed bottom-0 w-full">
-                <div className="container mx-auto px-4">
-                    <p className="text-sm">Developed by FOSSEE group, IIT Bombay</p>
+            </main>
+            <footer className="bg-gray-800 text-white py-6 mt-auto">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
+                        <p className="text-sm text-gray-300">Developed by FOSSEE group, IIT Bombay</p>
+                        <p className="text-xs text-gray-400 mt-2">
+                            © 2024 Workshop Booking Portal. All rights reserved.
+                        </p>
+                    </div>
                 </div>
             </footer>
-        </>
+        </div>
     );
 };
 
