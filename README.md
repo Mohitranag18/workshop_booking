@@ -140,47 +140,47 @@ The transformation from the old Django-based interface to the modern React appli
 
 ### Login Page
 **Before:**
-![Login Page Before](screenshots/before/LoginPage.png)
+![Login Page Before](./screenshots/before/LoginPage.png)
 
 **After:**
-![Login Page After](screenshots/after/LoginPage.png)
+![Login Page After](./screenshots/after/LoginPage.png)
 
 ### Registration Page
 **Before:**
-![Registration Page Before](screenshots/before/RegitsterPage.png)
+![Registration Page Before](./screenshots/before/RegitsterPage.png)
 
 **After:**
-![Registration Page After](screenshots/after/RegisterPage.png)
+![Registration Page After](./screenshots/after/RegisterPage.png)
 
 ### Workshop Types
 **Before:**
-![Workshop Types Before](screenshots/before/WorkshopTypes.png)
+![Workshop Types Before](./screenshots/before/WorkshopTypes.png)
 
 **After:**
-![Workshop Types After](screenshots/after/WorkshopTypes.png)
+![Workshop Types After](./screenshots/after/WorkshopTypes.png)
 
 ### Workshop Statistics
 **Before:**
-![Workshop Statistics Before](screenshots/before/WorkshopStatistics.png)
+![Workshop Statistics Before](./screenshots/before/WorkshopStatistics.png)
 
 **After:**
-![Workshop Statistics After](screenshots/after/WorkshopStatistics.png)
+![Workshop Statistics After](./screenshots/after/WorkshopStatistics.png)
 
 ### Home Page (Logged Out)
 **After:**
-![Home Page After](screenshots/after/HomePageWithoutLogin.png)
+![Home Page After](./screenshots/after/HomePageWithoutLogin.png)
 
 ### Instructor Dashboard
 **After:**
-![Instructor Dashboard](screenshots/after/InstructorDashboard.png)
+![Instructor Dashboard](./screenshots/after/InstructorDashboard.png)
 
 ### Profile Management
 **After:**
-![Profile Management](screenshots/after/MyProfile.png)
+![Profile Management](./screenshots/after/MyProfile.png)
 
 ### Add New Workshop Type
 **After:**
-![Add New Workshop Type](screenshots/after/AddNewWorkshopType.png)
+![Add New Workshop Type](./screenshots/after/AddNewWorkshopType.png)
 
 ## Technical Implementation
 
