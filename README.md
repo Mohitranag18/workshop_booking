@@ -4,11 +4,7 @@ A modern web application for managing educational workshops, built with React an
 
 ## What I Built
 
-This project helps connect workshop coordinators with instructors across India. Students and educators can browse available workshops, propose new ones, and manage their workshop activities through an intuitive web interface.
-
-## My Complete Contribution
-
-This entire modernization project was my task, and I transformed every aspect of the application. Here's what I accomplished:
+I transformed every aspect of the application. Here's what I accomplished:
 
 ### 1. Backend Modernization: Django Version Upgrade
 
